@@ -7,15 +7,27 @@ namespace Treehouse
         static void Main()
         {
             int runningTotal = 0;                                      //  Variables in C# have types
-            //  Prompt the user for minutes exercised
-            Console.Write("Enter how many minutes you exercised: ");   //  Displays text to user
-            string entry = Console.ReadLine();                         //  Read and return user input until they press return key
-            //  Add minutes exercised to total
-            int minutes = int.Parse(entry);
-            runningTotal = runningTotal + minutes;
-            //  Display total minutes exercised to screen
-            Console.WriteLine("You've exercised " + entry + " minutes!");
-            //  Repeat until user quits
+            bool keepGoing = true;
+
+            while(keepGoing)
+            {
+                //  Prompt the user for minutes exercised
+                Console.Write("Enter how many minutes you exercised, or type 'quit' to exit: ");
+                string entry = Console.ReadLine();                         //  Read and return user input until they press return key
+                if (entry == "quit")
+                {
+                    keepGoing = false;
+                }
+                else
+                {
+                    //  Add minutes exercised to total
+                    int minutes = int.Parse(entry);
+                    runningTotal = runningTotal + minutes;
+                    //  Display total minutes exercised to screen
+                    Console.WriteLine("You've exercised " + runningTotal + " minutes!");
+                }
+            }
+            Console.WriteLine("Goodbye!")
         }
     }
 }
