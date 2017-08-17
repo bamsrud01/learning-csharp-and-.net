@@ -11,6 +11,7 @@ namespace Treehouse.FitnessFrog
             string entry = Console.ReadLine();                         //  Read and return user input until they press return key
             //  Add minutes exercised to total
             //  Display total minutes exercised to screen
+            Console.WriteLine("You've exercised " + entry + " minutes!");
             //  Repeat until user quits
         }
     }
