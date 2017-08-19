@@ -6,59 +6,57 @@ namespace Treehouse
     {
         static void Main()
         {
-            double runningTotal = 0;                                      //  Variables in C# have types
-            bool keepGoing = true;
+            double runningTotal = 0.0;                                      //  Variables in C# have types, but 'var' can sometimes be used to declare.  Types are determined when compiled regardless
+            //  In this case, we cannot use 'var' with 0 as 0 is not necessarily a double.  It could be an int.  So we add a decimal value to force it to be a double
 
-            while(keepGoing)
+            while(true)
             {
                 //  Prompt the user for minutes exercised
                 Console.WriteLine("Enter how many minutes you exercised, or type 'quit' to exit: ");
-                string entry = Console.ReadLine();                         //  Read and return user input until they press return key
+                var entry = Console.ReadLine();                         //  Read and return user input until they press return key
 
-                if (entry.ToLower() == "quit")
+                if (entry.ToLower()g == "quit")
                 {
-                    keepGoing = false;
+                    break;
                 }
-                else
+
+                //  Add minutes exercised to total
+                try
                 {
-                    //  Add minutes exercised to total
-                    try
+                    var minutes = double.Parse(entry);
+
+                    if (minutes <= 0)
                     {
-                        double minutes = double.Parse(entry);
-
-                        if (minutes <= 0)
-                        {
-                            Console.WriteLine(minutes + " is not an acceptable value");
-                            continue;     //  Instructs loop to start again from the beginning
-                        }
-                        else if (minutes <= 10)
-                        {
-                            Console.WriteLine("Good start!");
-                        }
-                        else if (minutes <= 30)
-                        {
-                            Console.WriteLine("Way to go!");
-                        }
-                        else if (minutes <= 60)
-                        {
-                            Console.WriteLine("Now you're just showing off!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Great job!  Make sure you take a break!");
-                        }
-
-                        runningTotal = runningTotal + minutes;
+                        Console.WriteLine(minutes + " is not an acceptable value");
+                        continue;     //  Instructs loop to start again from the beginning
                     }
-                    catch (FormatException)
+                    else if (minutes <= 10)
                     {
-                        Console.Write("That is not valid input");
-                        continue;
+                        Console.WriteLine("Good start!");
+                    }
+                    else if (minutes <= 30)
+                    {
+                        Console.WriteLine("Way to go!");
+                    }
+                    else if (minutes <= 60)
+                    {
+                        Console.WriteLine("Now you're just showing off!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Great job!  Make sure you take a break!");
                     }
 
-                    //  Display total minutes exercised to screen
-                    Console.WriteLine("You've exercised " + runningTotal + " minutes!");
+                    runningTotal += minutes;
                 }
+                catch (FormatException)
+                {
+                    Console.Write("That is not valid input");
+                    continue;
+                }
+
+                //  Display total minutes exercised to screen
+                Console.WriteLine("You've exercised " + runningTotal + " minutes!");
             }
             Console.WriteLine("Goodbye!");
         }
