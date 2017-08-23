@@ -4,7 +4,7 @@ namespace TreehouseDefense
   {
     public static void Main()
     {
-      
+      Tower tower = new Tower();
     }
   }
 }
