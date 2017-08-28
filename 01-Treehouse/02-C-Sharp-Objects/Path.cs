@@ -10,16 +10,9 @@ namespace TreehouseDefense
       _path = path;
     }
 
-    public GetLocationAt(int pathStep)
+    public MapLocation GetLocationAt(int pathStep)
     {
-      if(pathStep < _path.length)
-      {
-        return _path[pathStep];
-      }
-      else
-      {
-        return null;
-      }
+      return (pathStep < _path.Length) ? _path[pathStep] : null;
     }
   }
 }
