@@ -22,14 +22,6 @@ namespace TreehouseDefense
             new MapLocation(7, 2, map),
           }
         );
-
-        Invader invader = new Invader();
-        MapLocation location = new MapLocation(0, 0, map);
-
-        //  Use Invader class properties as getters and setters
-        invader.Location = location;
-        location = invader.Location;
-
       }
       catch(OutOfBoundsException ex)
       {
