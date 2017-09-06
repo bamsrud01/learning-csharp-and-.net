@@ -13,7 +13,7 @@ namespace TreehouseDefense
     {
       for(int i = 0; i < invaders.Length; i++)
       {
-        Invader invader = invaders[index];
+        Invader invader = invaders[i];
       }
     }
   }
