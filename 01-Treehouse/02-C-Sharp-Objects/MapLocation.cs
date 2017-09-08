@@ -10,7 +10,7 @@ namespace TreehouseDefense
       }
     }
 
-    public boolean InRangeOf(MapLocation location, int range)
+    public bool InRangeOf(MapLocation location, int range)
     {
       return DistanceTo(location) <= range;
     }
