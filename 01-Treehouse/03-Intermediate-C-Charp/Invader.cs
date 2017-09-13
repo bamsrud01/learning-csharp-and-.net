@@ -23,9 +23,12 @@ namespace TreehouseDefense
 
     public void Move() => _pathStep += 1;
 
-    public void DecreaseHealth(int factor)
+    //  virtual marks method as one potential implementation of this method.
+    //  Subclasses may have alternate methods
+    public virtual void DecreaseHealth(int factor)
     {
       Health -= factor;
+      System.Console.WriteLine("Shot and hit an invader!");
     }
   }
 }
