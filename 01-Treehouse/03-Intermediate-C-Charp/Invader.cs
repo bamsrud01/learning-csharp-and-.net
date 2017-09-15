@@ -5,6 +5,9 @@ namespace TreehouseDefense
     private readonly Path _path;
     private int _pathStep = 0;
 
+    //  protected allows access to only this and subclasses
+    protected virtual int StepSize { get; } = 1;
+
     public MapLocation Location => _path.GetLocationAt(_pathStep);
 
     public int Health { get; private set; } = 2;
@@ -21,7 +24,7 @@ namespace TreehouseDefense
       _path = path;
     }
 
-    public void Move() => _pathStep += 1;
+    public void Move() => _pathStep += StepSize;
 
     //  virtual marks method as one potential implementation of this method.
     //  Subclasses may have alternate methods
